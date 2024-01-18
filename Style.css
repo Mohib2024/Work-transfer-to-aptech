@@ -10,8 +10,8 @@ body {
 
 /* Navigation Bar Styles */
 .navbar {
-  background-color: #000000;
-  height: 80px;
+  background-color: #a3272700;
+  height: 40px;
   transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
   position: fixed;
   top: 0;
@@ -655,8 +655,8 @@ body {
 }
 
 /* Service Hover Styles */
-.service:hover {
-  background-color: #fe8d02; /* Change background color on hover */
+.service:hover  {
+  background-color: #e29434; /* Change background color on hover */
   color: #000;
 }
 
@@ -677,7 +677,7 @@ body {
 /* Service Description Styles */
 .service-description {
   font-size: 14px;
-  color: #726d6d;
+  color: #868686;
 }
 
 /* Service Description Hover Styles */
