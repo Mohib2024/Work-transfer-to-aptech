@@ -5,36 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Gym Name</title>
     <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 
-    <div class="navbar">
-        <div class="navbar-brand">
-            <img src="img/Sporty Gym Fitness Running Group.png" alt="Logo" width="50"> <!-- Adjust the width as needed -->
+  <div class="navbar">
+    <div class="navbar-brand">
+        <img src="img/Sporty Gym Fitness Running Group.png" alt="Logo" width="50"> <!-- Adjust the width as needed -->
+    </div>
+    <a href="javascript:void(0);" class="icon" onclick="toggleSideMenu()">
+        &#9776;
+        <div id="pages1">
+            <a href="#HOME">HOME</a>
+            <a href="#ABOUT US">ABOUT US</a>
+            <a href="#CLASSES">CLASSES</a>
+            <a href="#OUR TEAM">OUR TEAM</a>
+            <a href="#PAGES">PAGES</a>
+            <a href="#CONTACT">CONTACT</a>
         </div>
-        <a href="javascript:void(0);" class="icon" onclick="toggleSideMenu()">
-            &#9776;
-            <div id="pages1">
-                <a href="#HOME">HOME</a>
-                <a href="#ABOUT US">ABOUT US</a>
-                <a href="#CLASSES">CLASSES</a>
-                <a href="#OUR TEAM">OUR TEAM</a>
-                <a href="#PAGES">PAGES</a>
-                <a href="#CONTACT">CONTACT</a>
-            </div>
-        </a>
+    </a>
+    <div class="search-icon" onclick="toggleSearchOverlay()"><i class="fa fa-search" style="font-size:20px;color:rgb(255, 255, 255);margin-right: 40px; "></i></div>
+</div>
+
+<div id="sideMenu" class="side-menu">
+    <a href="javascript:void(0);" class="close-btn" onclick="toggleSideMenu()">&times;</a>
+    <div class="search-icon" onclick="toggleSearchOverlay()">&#128269;</div>
+    <a href="#HOME">HOME</a>
+    <a href="#about">ABOUT US</a>
+    <a href="#classes">CLASSES</a>
+    <a href="#team">OUR TEAM</a>
+    <a href="#PAGES">PAGES</a>
+    <a href="#CONTACT">CONTACT</a>
+</div>
+
+<div id="searchOverlay" class="search-overlay">
+    <div class="search-container">
+        <div class="close-search" onclick="toggleSearchOverlay()">&times;</div>
+        <input class="input" type="text" placeholder="Search in here">
+        <!-- Add your search functionalities here -->
     </div>
-    
-    <div id="sideMenu" class="side-menu">
-        <a href="javascript:void(0);" class="close-btn" onclick="toggleSideMenu()">&times;</a>
-        <a href="#HOME">HOME</a>
-        <a href="#about">ABOUT US</a>
-        <a href="#classes">CLASSES</a>
-        <a href="#team">OUR TEAM</a>
-        <a href="#PAGES">PAGES</a>
-        <a href="#CONTACT">CONTACT</a>
-    </div>
+</div>
     
     <div class="slider-container">
         <div class="slider">
@@ -271,6 +282,18 @@
 
   // Show the initial active slide
   showSlide(currentSlide);
+
+  
+  function toggleSideMenu() {
+    var sideMenu = document.getElementById('sideMenu');
+    sideMenu.style.display = (sideMenu.style.display === 'none' || sideMenu.style.display === '') ? 'block' : 'none';
+}
+
+function toggleSearchOverlay() {
+    var searchOverlay = document.getElementById('searchOverlay');
+    searchOverlay.style.display = (searchOverlay.style.display === 'none' || searchOverlay.style.display === '') ? 'flex' : 'none';
+}
+
     </script>
 </html>
 
