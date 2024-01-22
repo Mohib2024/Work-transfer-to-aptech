@@ -9,10 +9,9 @@
 </head>
 <body>
 
-
   <div class="navbar">
     <div class="navbar-brand">
-        <img src="img/Sporty Gym Fitness Running Group.png" alt="Logo" width="50"> <!-- Adjust the width as needed -->
+        <img src="img/Sporty Gym Fitness Running Group.png" alt="Logo" style="height: 220px; width: 240px;">
     </div>
     <a href="javascript:void(0);" class="icon" onclick="toggleSideMenu()">
         &#9776;
@@ -25,58 +24,70 @@
             <a href="#CONTACT">CONTACT</a>
         </div>
     </a>
-    
-    <!-- Horizontal line after the search icon -->
-    <hr class="separator" style="height: 16px;margin-right: 6px; ">
-
-    <!-- Social media icons -->
-    <div class="social-icons">
-        <a href="#" class="social-icon"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="social-icon"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="social-icon"><i class="fa fa-instagram"></i></a>
-        <a href="#" class="social-icon"><i class="fa fa-linkedin"></i></a>
+    <div class="search-container">
+        <div class="search-icon" onclick="openSearchModal()"><i style="font-size:20px" class="fa">&#xf002;</i></div>
+        <div class="vertical-line" style="height: 25px;" ></div>
+        <div class="social-icons">
+            <!-- Add your social media icons with links here -->
+            <a href="#" class="fa fa-facebook" style="font-size: 16px;"></a>
+            <a href="#" class="fa fa-twitter" style="font-size: 16px;"></a>
+            <a href="#" class="fa fa-instagram" style="font-size: 16px;"></a>
+            <a href="#" class="fa fa-linkedin" style="font-size: 16px;"></a>
+        </div>
     </div>
-
-    <div class="search-icon" onclick="toggleSearchOverlay()"><i class="fa fa-search" style="font-size:20px;color:rgb(255, 255, 255);margin-right: 40px; padding: 10px;"></i></div>
 </div>
 
 <div id="sideMenu" class="side-menu">
-    <a href="javascript:void(0);" class="close-btn" onclick="toggleSideMenu()">&times;</a>
-    <a href="#HOME">HOME</a>
-    <a href="#about">ABOUT US</a>
-    <a href="#classes">CLASSES</a>
-    <a href="#team">OUR TEAM</a>
-    <a href="#PAGES">PAGES</a>
-    <a href="#CONTACT">CONTACT</a>
-</div>
+  <a href="javascript:void(0);" class="close-btn" onclick="toggleSideMenu()">&times;</a>
 
-<div id="searchOverlay" class="search-overlay">
-    <div class="search-container">
-        <div class="close-search" onclick="toggleSearchOverlay()">&times;</div>
-        <input class="input" type="text" placeholder="Search in here">
-        <!-- Add your search functionalities here -->
+  <a href="#HOME">HOME</a>
+  <a href="#about">ABOUT US</a>
+  <a href="#classes">CLASSES</a>
+  <a href="#team">OUR TEAM</a>
+  <a href="#PAGES">PAGES</a>
+  <a href="#CONTACT">CONTACT</a>
+  
+  <div class="search-container" style="margin-left: 20px; margin-bottom: 20px; margin-top: 20px;">
+    <div class="search-icon" onclick="openSearchModal()"><i style="font-size:20px" class="fa">&#xf002;</i></div>
+    <div class="vertical-line" style="height: 25px;margin-left: -0px; " ></div>
+    <div class="social-icons1" style="margin-left: -40px;">
+        <!-- Add your social media icons with links here -->
+        <a href="#" class="fa fa-facebook" style="font-size: 16px;"></a>
+        <a href="#" class="fa fa-twitter" style="font-size: 16px;"></a>
+        <a href="#" class="fa fa-instagram" style="font-size: 16px;"></a>
+        <a href="#" class="fa fa-linkedin" style="font-size: 16px;"></a>
     </div>
 </div>
+
+</div>
+
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="close-btn1" onclick="closeSearchModal()">&#10006;</div>
+        <input class="search-field" type="text" placeholder="Search here...">
+    </div>
+</div>
+
+
     
     <div class="slider-container">
         <div class="slider">
           <div class="slide active">
-            <img src="img/p1" alt="">
+            <img src="img/p1.avif" alt="">
             <div class="text-overlay">
-              <p>SHAPE YOUR BODY</p>
-              <h1>BE <span style="color: chocolate;">STRONGS</span> TRAIN HARD</h1>
-              <a href="#membership" class="cta-button">Join Now</a>
+              <p id="text1">JOIN US NOW</p>
+              <h1>FITNESS <span style="color: chocolate;">&</span> SPORTS</h1>
+              <a href="#membership" class="cta-button">READ MORE</a>
             </div>
           </div>
           <div class="slide active">
             <img src="img/p1.jpeg" alt="">
             <div class="text-overlay">
-              <p>SHAPE YOUR BODY</p>
-              <h1>BE <span style="color: chocolate;">STRONGS</span> TRAIN HARD</h1>
-              <a href="#membership" class="cta-button">Join Now</a>
+              <p id="text1">JOIN US NOW</p>
+              <h1>FITNESS <span style="color: chocolate;">&</span> SPORTS</h1>
+              <a href="#membership" class="cta-button">READ MORE</a>
             </div>
           </div>
-          <!-- Add more slides as needed -->
         </div>
         
         <!-- Navigation buttons -->
@@ -157,6 +168,8 @@
               <button class="arrow-button1">❯</button>
           </div>
       </div>
+
+      
     <!-- ... (Previous HTML content remains unchanged) ... -->
 
     <script>
@@ -221,15 +234,37 @@
         }
     }
 
-    // Handle window resize event
-    window.addEventListener('resize', function () {
-        var sideMenu = document.getElementById('sideMenu');
-        if (window.innerWidth > 600) {
-            sideMenu.style.width = '0';
-        }
-    });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+  var lastScrollTop = 0;
+  var delta = 5; // You can adjust this value to control when the navbar appears or disappears
+
+  window.addEventListener("scroll", function () {
+    var currentScroll =
+      window.pageYOffset || document.documentElement.scrollTop;
+    var navbar = document.querySelector(".navbar");
+
+    if (currentScroll <= delta) {
+      // At the top
+      navbar.classList.remove("hidden");
+      navbar.classList.remove("bg-black");
+    } else if (currentScroll > lastScrollTop) {
+      // Scrolling down
+      navbar.classList.add("hidden");
+      navbar.classList.remove("bg-black");
+    } else {
+      // Scrolling up
+      navbar.classList.remove("hidden");
+      navbar.classList.add("bg-black");
+    }
+
+    lastScrollTop = currentScroll;
+  });
+});
 
     let currentSlide = 0;
+  let touchStartX = 0;
   const slides = document.querySelector('.slider');
   const totalSlides = document.querySelectorAll('.slide').length;
   const indicator = document.querySelector('.indicator');
@@ -254,14 +289,14 @@
       dot.classList.toggle('active', i === currentSlide);
     });
   }
-  
+
   // Auto slide change and pause on hover
   let intervalId;
 
   function startAutoSlide() {
     intervalId = setInterval(() => {
       changeSlide(1);
-    }, 5000); // Change slide every 5 seconds
+    }, 10000); // Change slide every 5 seconds
   }
 
   function stopAutoSlide() {
@@ -283,20 +318,55 @@
     indicator.appendChild(dot);
   }
 
-  // Show the initial active slide
-  showSlide(currentSlide);
+  // Swipe functionality
+  document.addEventListener('touchstart', handleTouchStart);
+  document.addEventListener('touchend', handleTouchEnd);
 
-  
-  function toggleSideMenu() {
-    var sideMenu = document.getElementById('sideMenu');
-    sideMenu.style.display = (sideMenu.style.display === 'none' || sideMenu.style.display === '') ? 'block' : 'none';
-}
+  function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+  }
 
-function toggleSearchOverlay() {
-    var searchOverlay = document.getElementById('searchOverlay');
-    searchOverlay.style.display = (searchOverlay.style.display === 'none' || searchOverlay.style.display === '') ? 'flex' : 'none';
-}
+  function handleTouchEnd(event) {
+    if (!touchStartX) return;
 
+    const touchEndX = event.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+
+    if (deltaX > 50) {
+      changeSlide(-1); // Swipe right
+    } else if (deltaX < -50) {
+      changeSlide(1); // Swipe left
+    }
+
+    touchStartX = 0; // Reset touch start position
+  }
+
+
+  function openSearchModal() {
+        var searchModal = document.getElementById('searchModal');
+        searchModal.style.transition = 'opacity 0.5s ease-in-out'; // Apply transition
+        searchModal.style.opacity = '1';
+        searchModal.style.pointerEvents = 'auto';
+    }
+
+    function closeSearchModal() {
+        var searchModal = document.getElementById('searchModal');
+        searchModal.style.opacity = '0';
+        searchModal.style.pointerEvents = 'none';
+
+        // Remove transition after it's complete
+        searchModal.addEventListener('transitionend', function () {
+            searchModal.style.transition = 'none';
+        }, { once: true });
+    }
+
+    // Handle window resize event
+    window.addEventListener('resize', function () {
+        var sideMenu = document.getElementById('sideMenu');
+        if (window.innerWidth > 600) {
+            sideMenu.style.width = '0';
+        }
+    });
     </script>
 </html>
 
