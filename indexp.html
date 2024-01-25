@@ -114,7 +114,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111111eb;
+  background-color: #141414;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -122,19 +122,12 @@ body {
 
 .side-menu a {
   padding: 8px 8px 8px 32px;
-  text-decoration: none;
   font-size: 18px;
   color: #ffffff;
   display: block;
   transition: 0.3s;
 }
 
-.side-menu a:hover {
-  background-color: #db1111;
-  color: #f1f1f1;
-  border-radius: 160px;
-  width: 20px;
-}
 
 .side-menu .close-btn {
   position: absolute;
@@ -149,6 +142,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
+
 #pages1 {
     flex-grow: 1;
     display: flex;
@@ -503,7 +497,7 @@ body {
       z-index: 1;
       top: 0;
       left: 0;
-      background-color: #111111eb;
+      background-color: #111111;
       overflow-x: hidden;
       transition: 0.5s;
       padding-top: 60px;
@@ -842,6 +836,7 @@ body {
 <div id="sideMenu" class="side-menu">
   <a href="javascript:void(0);" class="close-btn" onclick="toggleSideMenu()">&times;</a>
 
+  <div class="navigation"><p style="color: #c83535;margin-bottom: 20px;margin-top: 40px; margin-left: 20px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-weight: lighter;font-size: 20px;">Navigation</p></div>
   <!-- Update href attributes of navigation links -->
   <a href="#HOME">HOME</a>
   <a href="#about">ABOUT US</a>
@@ -850,11 +845,12 @@ body {
   <a href="#PAGES">PAGES</a>
   <a href="#CONTACT">CONTACT</a>
 
+  <div><p style="text-align: left;color: #4b4b4b; margin-left: 20px;margin-top: 10px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod quas molestiae sapiente, commod ipsa quisquam maiores!</p></div>
   <!-- Search and social icons are already inside the navbar, so no need to duplicate them here -->
-  <div class="search-container" style="margin-left: 20px; margin-bottom: 20px; margin-top: 20px;">
+  <div class="search-container" style="margin-left: 20px; margin-bottom: 20px; margin-top: 40px;">
     <div class="search-icon" onclick="openSearchModal()"><i style="font-size:20px" class="fa">&#xf002;</i></div>
     <div class="vertical-line" style="height: 25px;margin-left: -0px; " ></div>
-    <div class="social-icons1" style="margin-left: -40px;">
+    <div class="social-icons1" style="margin-left: -2px;">
         <!-- Add your social media icons with links here -->
         <a href="#" class="fa fa-facebook" style="font-size: 16px;"></a>
         <a href="#" class="fa fa-twitter" style="font-size: 16px;"></a>
@@ -959,7 +955,7 @@ body {
             <p>STRENGTH<br>KETTLEBELL POWER</p>
           </div>
       </div>
-      
+      <!-- large 2 images  -->
       <div class="larger-picture-container">
           <div class="larger-picture">
               <img src="img/p2.webp" alt="Cardio Indoor Cycling">
@@ -973,7 +969,6 @@ body {
           </div>
       </div>
 
-      
     <!-- ... (Previous HTML content remains unchanged) ... -->
 
     <script>
